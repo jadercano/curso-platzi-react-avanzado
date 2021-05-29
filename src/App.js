@@ -1,8 +1,8 @@
 import React from "react";
 import { ListOfCategories } from "./components/ListOfCategories";
 import { GlobalStyle } from "./styles/GlobalStyle";
-import { ListOfPhotoCards } from "./ListOfPhotoCards";
-import { Logo } from "./Logo";
+import { ListOfPhotoCards } from "./components/ListOfPhotoCards";
+import { Logo } from "./components/Logo";
 
 const App = () => {
   return (
