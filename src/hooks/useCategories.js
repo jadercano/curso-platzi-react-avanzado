@@ -6,7 +6,7 @@ export const useCategories = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch("http://localhost:3000/categories")
+    fetch("http://localhost:3500/categories")
       .then((res) => res.json())
       .then((response) => {
         setCategories(response);

@@ -1,10 +1,7 @@
 import React from "react";
-import { usePhotos } from "../../hooks/usePhotos";
 import { PhotoCard } from "../PhotoCard";
 
-export const ListOfPhotoCards = () => {
-  const { photos, loading } = usePhotos();
-
+export const ListOfPhotoCardsComponent = ({ data: { photos, loading } }) => {
   if (loading) {
     return <h1>Loading...</h1>;
   }
