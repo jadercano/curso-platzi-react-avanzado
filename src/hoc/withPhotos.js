@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
 import { graphql } from "@apollo/client/react/hoc";
 
-export const withPhotos = graphql(gql`
+const GET_PHOTOS = gql`
   query getPhotos($categoryId: ID) {
     photos(categoryId: $categoryId) {
       id
@@ -12,4 +12,6 @@ export const withPhotos = graphql(gql`
       liked
     }
   }
-`);
+`;
+
+export const withPhotos = graphql(GET_PHOTOS);
