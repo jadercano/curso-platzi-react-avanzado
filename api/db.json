@@ -42,6 +42,13 @@
       "favs": [],
       "avatar": "https://gravatar.com/avatar/be21ac26fd0e7285f81f9bc8b3bf5b28",
       "email": "qwer@qwer.com"
+    },
+    {
+      "id": "b48d0a10-c5fa-11eb-9530-eb703d2f4d28",
+      "password": "$2b$10$3DHOCqC92aXtdTueyPkfHeaksEIxLA5QZVgF96tVnR8.z/wHnSz9S",
+      "favs": [],
+      "avatar": "https://gravatar.com/avatar/52a0d313329104107aed27e651038601",
+      "email": "qwerty@gmail.com"
     }
   ],
   "categories": [

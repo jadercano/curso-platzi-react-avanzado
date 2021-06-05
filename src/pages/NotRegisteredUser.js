@@ -1,42 +1,39 @@
-import React from "react";
+import React, { useContext } from "react";
+import { LoginUser } from "../components/LoginUser";
 import { UserForm } from "../components/UserForm";
 import { RegisterMutation } from "../container/RegisterMutation";
-import Context from "../Context";
+import { Context } from "../Context";
 
 export const NotRegisteredUser = () => {
+  const { activateAuth } = useContext(Context);
   return (
-    <Context.Consumer>
-      {({ activateAuth }) => {
-        return (
-          <>
-            <RegisterMutation>
-              {(register, { data, loading, error }) => {
-                const onSubmit = ({ email, password }) => {
-                  const input = { email, password };
-                  const variables = { input };
-                  register({ variables }).then(activateAuth);
-                };
+    <>
+      <RegisterMutation>
+        {(register, { data, loading, error }) => {
+          const onSubmit = ({ email, password }) => {
+            const input = { email, password };
+            const variables = { input };
+            register({ variables }).then(({ data: { signup } }) =>
+              activateAuth(signup)
+            );
+          };
 
-                const errorMsg =
-                  error &&
-                  "Lo sentimos, ha ocurrido un error. Inténtalo más tarde.";
+          const errorMsg =
+            error && "Lo sentimos, ha ocurrido un error. Inténtalo más tarde.";
 
-                return (
-                  <>
-                    <UserForm
-                      onSubmit={onSubmit}
-                      title="Registrarse"
-                      error={errorMsg}
-                      loading={loading}
-                    />
-                  </>
-                );
-              }}
-            </RegisterMutation>
-            <UserForm onSubmit={activateAuth} title="Iniciar Sesión" />
-          </>
-        );
-      }}
-    </Context.Consumer>
+          return (
+            <>
+              <UserForm
+                onSubmit={onSubmit}
+                title="Registrarse"
+                error={errorMsg}
+                loading={loading}
+              />
+            </>
+          );
+        }}
+      </RegisterMutation>
+      <LoginUser />
+    </>
   );
 };
