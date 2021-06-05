@@ -10,13 +10,27 @@ export const NotRegisteredUser = () => {
         return (
           <>
             <RegisterMutation>
-              {(register) => {
+              {(register, { data, loading, error }) => {
                 const onSubmit = ({ email, password }) => {
                   const input = { email, password };
                   const variables = { input };
                   register({ variables }).then(activateAuth);
                 };
-                return <UserForm onSubmit={onSubmit} title="Registrarse" />;
+
+                const errorMsg =
+                  error &&
+                  "Lo sentimos, ha ocurrido un error. Inténtalo más tarde.";
+
+                return (
+                  <>
+                    <UserForm
+                      onSubmit={onSubmit}
+                      title="Registrarse"
+                      error={errorMsg}
+                      loading={loading}
+                    />
+                  </>
+                );
               }}
             </RegisterMutation>
             <UserForm onSubmit={activateAuth} title="Iniciar Sesión" />

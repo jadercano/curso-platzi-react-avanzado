@@ -1,8 +1,9 @@
 import React from "react";
 import { useInputValue } from "../../hooks/useInputValue";
-import { Button, Form, Input, Title } from "./styles";
+import { Loading } from "../Loading";
+import { Button, Error, Form, Input, Title } from "./styles";
 
-export const UserForm = ({ onSubmit, title }) => {
+export const UserForm = ({ onSubmit, title, error, loading }) => {
   const email = useInputValue("");
   const password = useInputValue("");
 
@@ -11,14 +12,24 @@ export const UserForm = ({ onSubmit, title }) => {
     onSubmit({ email: email.value, password: password.value });
   };
 
+  const disabled = loading === true;
+
   return (
     <>
-      <Title>{title}</Title>
       <Form onSubmit={handleSubmit}>
-        <Input placeholder="Email" type="text" {...email} />
-        <Input placeholder="Password" type="password" {...password} />
-        <Button type="submit">{title}</Button>
+        <Title>{title}</Title>
+        <Input placeholder="Email" type="text" disabled={disabled} {...email} />
+        <Input
+          placeholder="Password"
+          type="password"
+          disabled={disabled}
+          {...password}
+        />
+        <Button type="submit" disabled={disabled}>
+          {disabled ? <Loading /> : title}
+        </Button>
       </Form>
+      {error && <Error>{error}</Error>}
     </>
   );
 };
