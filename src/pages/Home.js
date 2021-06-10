@@ -1,4 +1,5 @@
 import React from "react";
+import { Layout } from "../components/Layout";
 import { ListOfCategories } from "../components/ListOfCategories";
 import { ListOfPhotoCards } from "../container/ListOfPhotoCards";
 
@@ -8,9 +9,9 @@ export const Home = ({
   },
 }) => {
   return (
-    <>
+    <Layout>
       <ListOfCategories />
       <ListOfPhotoCards categoryId={id} />
-    </>
+    </Layout>
   );
 };
