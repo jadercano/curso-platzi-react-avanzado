@@ -34,7 +34,9 @@
       "password": "$2b$10$uDMFAYsTZ6Yn5fPH/yZjNeUIRufjjqUWq/CruCGUD1TYifMXaq.9O",
       "favs": [
         "1",
-        "0"
+        "0",
+        "15",
+        "18"
       ],
       "avatar": "https://gravatar.com/avatar/9d962849e322ffc3335dbebdbf951ee8",
       "email": "qwe@qwe.com"
@@ -118,14 +120,14 @@
       "categoryId": 4,
       "src": "https://images.unsplash.com/photo-1520561805070-83c413349512?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
       "userId": 1,
-      "likes": 1
+      "likes": 2
     },
     {
       "id": 18,
       "categoryId": 5,
       "src": "https://images.unsplash.com/photo-1518001589401-1743b61d1def?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
       "userId": 2,
-      "likes": 15
+      "likes": 16
     },
     {
       "id": 16,
