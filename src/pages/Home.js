@@ -3,7 +3,7 @@ import { Layout } from "../components/Layout";
 import { ListOfCategories } from "../components/ListOfCategories";
 import { ListOfPhotoCards } from "../container/ListOfPhotoCards";
 
-export const Home = ({
+const HomePage = ({
   match: {
     params: { id },
   },
@@ -15,3 +15,7 @@ export const Home = ({
     </Layout>
   );
 };
+
+export const Home = React.memo(HomePage, (prevProvs, props) => {
+  return prevProvs.match.params.id === props.match.params.id;
+});
